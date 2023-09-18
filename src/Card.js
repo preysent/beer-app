@@ -1,10 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const BeerCard = ({ beerData }) => {
-    console.log(beerData)
+
+    const store = useSelector(store=>store)
+    console.log(store)
+    
     return (
         <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
             <img src={beerData.image_url} alt={beerData.name} className="w-full h-48 object-cover" />
+            <h1 className='text-center text-2xl uppercase font-bold'>{store.mode}</h1>
             <div className="px-6 py-4">
                 <h2 className="text-xl font-semibold text-gray-800">{beerData.name}</h2>
                 <p className="text-gray-600 text-sm">{beerData.description}</p>
